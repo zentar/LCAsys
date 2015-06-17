@@ -18,4 +18,12 @@ class IndexController extends AbstractActionController
     {
         return new ViewModel();
     }
+
+    public function HolaMundoAction(){
+	
+        //Le pasamos a la vista un array
+        return new ViewModel(
+           array("holamundo"=>"Hola mundo Zend Framework 2, soy el creador... ")
+        );
+    }
 }
