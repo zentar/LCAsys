@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
-	<h1>CAMBIO</h1>
+	<h1>CAMBIO DESDE EL SERVIDOR</h1>
 
 </div>
 
