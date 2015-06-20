@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
-	<h1>Ejemplo de camnbio en codeigniter</h1>
+	<h1>CAMBIO</h1>
 
 </div>
 
