@@ -43,13 +43,12 @@ public function guardar_equipo()
                         'modelo'=>$this->input->post("modelo",true),
                         'cantidad'=>$this->input->post("cantidad",true),
                         'costo'=>$this->input->post("costo",true),
-                        'tiempo'=>"tiempo",
+                        'tiempo'=>$this->input->post("tiempo",true),
            
                         
                    );
     $this->inventario_model->insertar_equipo($data);
-   redirect('http://localhost:81/LCAsys/code/index.php/inventario',  301);
-                
+   
     
 }
 
