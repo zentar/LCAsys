@@ -11,7 +11,7 @@
  *
  * @author sandro
  */
-class Inventario extends CI_Controller {
+class Equipo extends CI_Controller {
     public function __construct() {
         parent::__construct();
     }
@@ -20,16 +20,22 @@ public function index()
 {
     
 }
-public function equipo()
+public function ingreso()
 {
-     $datos=$this->inventario_model->getEquipo();
-            
-        $this->load->view('crudequipo_view',  compact("datos"));
+    
+       $this->load->view('ingreso_equipo_view');     
+      
 }
 
+
+public function mostrar()
+{
+    $datos=$this->inventario_model->getEquipo();
+    $this->load->view('consulta_equipo_view',  compact("datos"));
+}
 public function cargar()
 {
-   $this->load->view('ingresoequipo_view',  compact("datos"));
+  
 
 }
 

@@ -15,6 +15,7 @@ class M_metodo  extends CI_Model {
  
    		));
    }
+   
 }
    
 ?>

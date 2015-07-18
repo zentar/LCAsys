@@ -27,8 +27,6 @@
     </head>
     
     <body>
-        
-        
         <form id="form">
         <table>
             <tr>
