@@ -13,7 +13,10 @@
        
       <table>
        
-       
+          <select>
+              <option>sandro</option>
+              <option>saasdro</option>
+          </select>
         
         <tr style="background: #e98b39">
             <td>Codigo</td>

@@ -136,5 +136,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-
-$autoload['model'] = array('metodo_model','parametro_model','tecnica_model');
+$autoload['model'] = array('inventario_model','tipomedida_model','embalaje_model');
