@@ -1,5 +1,5 @@
 <?php
-
+//hola veronica sancan
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,7 +11,7 @@
  *
  * @author sandro
  */
-class Equipo extends CI_Controller {
+class Articulo extends CI_Controller {
     public function __construct() {
         parent::__construct();
     }
@@ -20,7 +20,7 @@ public function index()
 {
     
 }
-public function ingreso()
+public function ingresoequipo()
 {
     
        $this->load->view('ingreso_equipo_view');     
@@ -28,10 +28,10 @@ public function ingreso()
 }
 
 
-public function mostrar()
+public function mostrarequipo()
 {
     $datos=$this->inventario_model->getEquipo();
-    $this->load->view('consulta_equipo_view',  compact("datos"));
+    $this->load->view('mostrar_equipo_view',  compact("datos"));
 }
 public function cargar()
 {

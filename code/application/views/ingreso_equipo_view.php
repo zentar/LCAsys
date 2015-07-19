@@ -30,6 +30,12 @@
         <form id="form">
         <table>
             <tr>
+                <td>Codigo</td>
+                <td><input type="text" name='codigo'/>
+                </td>
+                
+            </tr>
+            <tr>
                 <td>Nombre</td>
                 <td><input type="text" name='nombre'/>
                 </td>
