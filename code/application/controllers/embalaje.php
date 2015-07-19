@@ -15,7 +15,7 @@ public function ingreso()
 public function mostrar()
 {
   
-            $datos=$this->tipomedida_model->gettipomedida();
+            $datos=$this->embalaje_model->getembalaje();
       
         $this->load->view('mostrar_embalaje_view',  compact("datos"));
 
@@ -37,8 +37,10 @@ public function guardar()
    	else
    	{
    	
-   		$this->form_validation->set_rules('nombretipo','nombre','required|alpha|max_length[50]');
-   		$this->form_validation->set_message('required','El nombre %s es requerido');
+   		$this->form_validation->set_rules('nombre','nombre','required|alpha|max_length[50]');
+   		$this->form_validation->set_rules('descripcion','descripcion','required|alpha|max_length[400]');
+   		
+                $this->form_validation->set_message('required','El nombre %s es requerido');
                 $this->form_validation->set_message('alpha','El campo %s solo puede contener caracteres alfabeticos.');
          	if ($this->form_validation->run() == false) {
    	     $error = json_encode(validation_errors());
@@ -49,16 +51,19 @@ public function guardar()
                 else {
    		$data=array
                    (
+                        'nombre_embalaje'=>$this->input->post("nombre",true),
+                        'descrp_embalaje'=>$this->input->post("descripcion",true),
                         
-                    'nombre'=>$this->input->post("nombretipo",true)    
            
                         
                    );
-            $this->tipomedida_model->registrar($data);   	
+            $this->embalaje_model->registrar($data);   	
             echo("Registro Guardado");
    		}
 
-   	} 	
+   	}
+        
+      
    }
     
 }
