@@ -23,11 +23,20 @@ class Embalaje_model  extends CI_Model {
    $this->db->order_by('codigo_embalaje');
    $consulta = $this->db->get();
    $resultado = $consulta->result();
-   return $resultado;
-        
-        
-       
+   return $resultado;       
     }
+    
+    public function nombreembalaje()
+     {
+     $this->db->select('codigo_embalaje,nombre_embalaje');
+   $this->db->from('tb_embalaje');
+    $this->db->where('codigo_embalaje >1');
+   $this->db->order_by('codigo_embalaje');
+   $consulta = $this->db->get();
+   $resultado = $consulta->result();
+   return $resultado;       
+    }       
+            
 }
    
 ?>

@@ -1,27 +1,33 @@
 <html>
 <head>
-	 <title>Inventario</title>
-	 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	 <script type="text/javascript">	
-	 		 $(document).ready(function(){
-	 		 $("#guardar").click(function(){
-	 		 	 //alert("hola");
-	 		 	 $.ajax({
-	 		 	   url: '<?= base_url(); ?>' + 'parametro/guardar',	
-				  type: 'POST',
-                  data: $('#form').serialize(),
-	 		 	  success: function(msj){
-	 		 	  	//   alert(msj);
-	 		 	  	$("#mensaje").html(msj);
-	 		 	  	}
-	 		 	 });
-	 		 	 return false;
-	 		 	})
-	 		});
-	 </script>
+	 <title>equipo</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+        <script type="text/javascript">
+          $(document).ready(function(){
+             $("#guardarparametro").click(function(){
+               //alert ('hola');
+               $.ajax({
+                  url:'http://localhost:81/LCAsys/code/index.php/parametro/guardar',
+                  type: 'POST',
+                  data: $('#formparametro').serialize(),
+                  success: function (msj){
+                      //alert(msj);
+                      $("#validacionparametro").html(msj);
+                  }
+               });  
+              
+        return false;
+             })  
+          });
+                    
+                
+               
+        </script>   
+         
 </head>
 	<body>
-		<form id="form">
+		<form id="formparametro">
 		<table>
 			<tr>
 				<td>Crear Parámetro</td>
@@ -60,10 +66,10 @@
 				</td>
 			</tr>
 			<tr>
-				<td><input type="button" value="Guardar" id="guardar" /> </td>
+				<td><input type="button" value="Guardar" id="guardarparametro" /> </td>
 			</tr>
 		</table>
 		</form>
-		<div id="mensaje"></div>
+		<div id="validacionparametro"></div>
 	</body>
 </html>

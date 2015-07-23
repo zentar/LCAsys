@@ -23,7 +23,8 @@
                     
                 
                
-        </script>    
+        </script>   
+         
     </head>
     
     <body>
@@ -33,21 +34,19 @@
         <table>
             <tr>
                 <td>Nombre</td>
-                <td><input type="text" name='nombre' />
+                <td><input type="text" name='nombre' id="sandro" />
                     
                 </td>        
-            <tr>
+            </tr>
                  <tr>
                 <td>Descripcion</td>
                 <td> 
                    
                    <textarea name="descripcion" rows="10" cols="40"></textarea>
                 </td>        
-            <tr>
-                <td><input type="button" value='guardar' id="registrarembalaje" /></td>
-                    
             </tr>
-            
+                <td><input type="button" value='guardar' id="registrarembalaje" /></td>
+               
         
             
             
@@ -57,5 +56,6 @@
            
             </form>
        <div id="validacionembalaje"></div>
+       
     </body>
 </html>

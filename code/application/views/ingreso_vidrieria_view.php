@@ -5,15 +5,15 @@
     
         <script type="text/javascript">
           $(document).ready(function(){
-             $("#guardarequipo").click(function(){
+             $("#guardarvidrieria").click(function(){
                //alert ('hola');
                $.ajax({
-                  url:'http://localhost:81/LCAsys/code/index.php/articulo/guardar_equipo',
+                  url:'http://localhost:81/LCAsys/code/index.php/articulo/guardar_vidrieria',
                   type: 'POST',
-                  data: $('#formequipo').serialize(),
+                  data: $('#formvidrieria').serialize(),
                   success: function (msj){
                       //alert(msj);
-                      $("#validacionequipo").html(msj);
+                      $("#validacionvidrieria").html(msj);
                   }
                });  
               
@@ -27,7 +27,7 @@
     </head>
     
     <body>
-        <form id="formequipo">
+        <form id="formvidrieria">
         <table>
             <tr>
                 <td>Codigo</td>
@@ -66,11 +66,29 @@
             </tr>
             <tr>
                 <td>Tiempo de Vida</td>
-                <td><input type="text" name='tiempo'/> años
+                <td><input type="text" name='tiempo'/> meses
+                </td>                
+            </tr>
+            
+            <tr>
+                <td>capacidad</td>
+                <td><input type="text" name='cantidadembalaje'/>
                 </td>                
             </tr>
             <tr>
-                <td><input type="button" value='guardar' id="guardarequipo" /></td>
+                <td>Tipo de Medida</td>
+                <td>
+                    <select name="tipo_medida">
+                         <?php foreach ($datostipomedida as $dato) { ?>
+                        <option value=<?php echo $dato->codigo_tipomedida ?>>
+                            <?php echo $dato->nombre?>
+                        </option>
+                         <?php } ?> 
+                    </select>
+                </td>                
+            </tr>
+            <tr>
+                <td><input type="button" value='guardar' id="guardarvidrieria" /></td>
                     
             </tr>
             
@@ -79,7 +97,7 @@
             
         </table>
             </form>
-        <div id="validacionequipo"></div>
+        <div id="validacionvidrieria"></div>
        
     </body>
 </html>

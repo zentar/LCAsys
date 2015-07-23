@@ -28,7 +28,7 @@ public function cargar()
     
 }
 
-public function guardar()
+        public function guardar()
 {
     if(!$this->input->is_ajax_request())
    	{

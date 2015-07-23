@@ -5,15 +5,15 @@
     
         <script type="text/javascript">
           $(document).ready(function(){
-             $("#guardarequipo").click(function(){
+             $("#guardarreactivo").click(function(){
                //alert ('hola');
                $.ajax({
-                  url:'http://localhost:81/LCAsys/code/index.php/articulo/guardar_equipo',
+                  url:'http://localhost:81/LCAsys/code/index.php/articulo/guardar_reactivo',
                   type: 'POST',
-                  data: $('#formequipo').serialize(),
+                  data: $('#formreactivo').serialize(),
                   success: function (msj){
                       //alert(msj);
-                      $("#validacionequipo").html(msj);
+                      $("#validacionreactivo").html(msj);
                   }
                });  
               
@@ -27,7 +27,7 @@
     </head>
     
     <body>
-        <form id="formequipo">
+        <form id="formreactivo">
         <table>
             <tr>
                 <td>Codigo</td>
@@ -47,12 +47,7 @@
                 </td>
                 
             </tr>
-            <tr>
-                <td>Modelo</td>
-                <td><input type="text" name='modelo' />
-                </td>
-                
-            </tr>
+            
             <tr>
                 <td>Cantidad</td>
                 <td><input type="text" name='cantidad'/>
@@ -62,15 +57,43 @@
             <tr>
                 <td>Costo</td>
                 <td><input type="text" name='costo'/>
+                </td>
+                
+            </tr>
+             <tr>
+                <td>Tipo Embalaje</td>
+                <td>
+                    <select name="tipo_embalaje">
+                         <?php foreach ($datosembalaje as $dato) { ?>
+                        <option value=<?php echo $dato->codigo_embalaje ?>>
+                            <?php echo $dato->nombre_embalaje?>
+                        </option>
+                         <?php } ?> 
+                    </select>
                 </td>                
             </tr>
             <tr>
-                <td>Tiempo de Vida</td>
-                <td><input type="text" name='tiempo'/> años
+                <td>Cantidad Embalaje</td>
+                <td><input type="text" name='cantidad_embalaje' size="1"/>
+                </td>
+                
+            </tr>
+            
+            
+            <tr>
+                <td>Tipo de Medida</td>
+                <td>
+                    <select name="tipo_medida">
+                         <?php foreach ($datostipomedida as $dato) { ?>
+                        <option value=<?php echo $dato->codigo_tipomedida ?>>
+                            <?php echo $dato->nombre?>
+                        </option>
+                         <?php } ?> 
+                    </select>
                 </td>                
             </tr>
             <tr>
-                <td><input type="button" value='guardar' id="guardarequipo" /></td>
+                <td><input type="button" value='guardar' id="guardarreactivo" /></td>
                     
             </tr>
             
@@ -79,7 +102,7 @@
             
         </table>
             </form>
-        <div id="validacionequipo"></div>
+        <div id="validacionreactivo"></div>
        
     </body>
 </html>

@@ -28,6 +28,21 @@ class Tipomedida_model  extends CI_Model {
         
        
     }
+    
+    public function nombremedida()
+    {
+     $this->db->select('codigo_tipomedida,nombre');
+   $this->db->from('tb_tipomedida');
+   $this->db->where('codigo_tipomedida >1');
+   
+   $this->db->order_by('codigo_tipomedida');
+   $consulta = $this->db->get();
+   $resultado = $consulta->result();
+   return $resultado;
+        
+        
+       
+    }
 }
    
 ?>

@@ -7,7 +7,7 @@ class Metodo  extends CI_Controller {
 	{
 		parent::__construc();
 		//$this->load->library('form_validation');
-      $this->load->model('metodo_model');
+     
 	}
 
    public function index(){

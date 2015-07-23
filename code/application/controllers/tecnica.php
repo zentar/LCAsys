@@ -7,9 +7,8 @@ class Tecnica  extends CI_Controller {
    {
       parent::__construc();
       //$this->load->library('form_validation');
-      $this->load->model('metodo_model');
-      $this->load->model('parametro_model');
-      $this->load->model('tecnica_model');      
+    
+          
    }
 
    public function index(){
@@ -22,6 +21,11 @@ function ingresar()
    $datos=$this->metodo_model->get_nombre_metodo();
    $datos1=$this->parametro_model->get_nombre_parametro();
    $this->load->view('ingreso_tecnica_view',  compact("datos","datos1"));
+}
+
+function ingresardetalle()
+{  
+   $this->load->view('ingreso_dettecnica_view');
 }
 
 public function guardar()   {

@@ -7,7 +7,7 @@ class Parametro extends CI_Controller {
    {
       parent::__construc();
       //$this->load->library('form_validation');
-      $this->load->model('parametro_model');
+    
    }
 
 
@@ -29,12 +29,14 @@ class Parametro extends CI_Controller {
         // $this->form_validation->set_rules('unidad','Unidad','required|xss_clean');
          $this->form_validation->set_rules('max_parametro','Limite','required|alpha_dash|max_length[20]');
          $this->form_validation->set_rules('min_parametro','Limite','required|alpha_dash|max_length[20]');
-         $this->form_validation->set_rules('precio_parametro','Precio','required|decimal|max_length[20]');
+         $this->form_validation->set_rules('precio_parametro','Precio','required|numeric|max_length[20]');
        //  $this->form_validation->set_rules('iva_parametro','IVA','required');
          $this->form_validation->set_rules('estado','Estado','required');
          $this->form_validation->set_message('required','El campo %s es requerido');
          $this->form_validation->set_message('alpha','El campo %s solo puede contener caracteres alfabeticos.');
          $this->form_validation->set_message('alpha_dash','El campo %s solo puede contener caracteres alfanumericos, guiones bajos o guiones ');
+         $this->form_validation->set_message('numeric','El campo %s solo puede contener caracteres numericos');
+        
         // echo("todo bien");
          if ($this->form_validation->run() == false) {
             //echo json_encode(validation_errors());

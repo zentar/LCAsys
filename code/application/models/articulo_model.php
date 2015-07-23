@@ -11,7 +11,7 @@
  *
  * @author sandro
  */
-class Inventario_model extends CI_Model{
+class Articulo_model extends CI_Model{
     public function __construct() {
         parent::__construct();
     }

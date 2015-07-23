@@ -1,29 +1,32 @@
 <html>
 <head>
-	 <title>Inventario</title>
-	 <!--link_tag("css/estilos/metodo.css")  -->
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	 <script type="text/javascript">	
-	 		 $(document).ready(function(){
-	 		 $("#guardar").click(function(){
-	 		 	 //alert("hola");
-	 		 	 $.ajax({
-	 		 	   url: '<?= base_url(); ?>' + 'metodo/guardar',	
-				  type: 'POST',
-                  data: $('#form').serialize(),
-	 		 	  success: function(msj){
-	 		 	  	//   alert(msj);
-	 		 	  	$("#mensaje").html(msj);
-	 		 	  	}
-	 		 	 });
-	 		 	 return false;
-	 		 	})
-	 		});
-	 </script>
+	<title>equipo</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+        <script type="text/javascript">
+          $(document).ready(function(){
+             $("#registrarmetodo").click(function(){
+               //alert ('hola');
+               $.ajax({
+                  url:'http://localhost:81/LCAsys/code/index.php/metodo/guardar',
+                  type: 'POST',
+                  data: $('#formmetodo').serialize(),
+                  success: function (msj){
+                      //alert(msj);
+                      $("#validacionmetodo").html(msj);
+                  }
+               });  
+              
+        return false;
+             })  
+          });
+                    
+                
+               
+        </script>   
 </head>
 	<body>
-		<form id="form">
+		<form id="formmetodo">
 		<table>
 			<tr>
 				<td>Método</td>
@@ -42,10 +45,10 @@
 				</td>
 			</tr>
 			<tr>
-				<td><input type="button" value="Guardar" id="guardar" /> </td>
+				<td><input type="button" value="Guardar" id="registrarmetodo" /> </td>
 			</tr>
 		</table>
 		</form>
-		<div id="mensaje"></div>
+		<div id="validacionmetodo"></div>
 	</body>
 </html>
