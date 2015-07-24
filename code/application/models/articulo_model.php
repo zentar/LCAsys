@@ -17,18 +17,6 @@ class Articulo_model extends CI_Model{
     }
     
     //genera el listado de los equipos
-    public function getEquipo()
-    {
-     $this->db->select('codigo_articulo,nombre,marca,modelo');
-   $this->db->from('tb_articulo');
-   $this->db->order_by('codigo_articulo');
-   $consulta = $this->db->get();
-   $resultado = $consulta->result();
-   return $resultado;
-        
-        
-       
-    }
      public function insertar_equipo($datos=array())
     {
         
@@ -36,14 +24,40 @@ class Articulo_model extends CI_Model{
         return true;
     }
     
-    
-    
-    public function getVidrieria()
+    public function getnombrequipo()
     {
+     $this->db->select('codigo_articulo,nombre_articulo');
+   $this->db->from('tb_articulo');
+   $this->db->where('tb_categoria_cod_categoria = 1');
+   
+   $consulta = $this->db->get();
+   $resultado = $consulta->result();
+   return $resultado;
         
+        
+       
     }
-    public function getReactivo()
+    
+   
+    
+    public function getnombrevidrieria()
     {
-        
+         $this->db->select('codigo_articulo,nombre_articulo');
+   $this->db->from('tb_articulo');
+   $this->db->where('tb_categoria_cod_categoria = 2');
+   
+   $consulta = $this->db->get();
+   $resultado = $consulta->result();
+   return $resultado;
+    }
+    public function getnombrereactivo()
+    {
+         $this->db->select('codigo_articulo,nombre_articulo');
+   $this->db->from('tb_articulo');
+   $this->db->where('tb_categoria_cod_categoria = 3');
+   
+   $consulta = $this->db->get();
+   $resultado = $consulta->result();
+   return $resultado;
     }
 }

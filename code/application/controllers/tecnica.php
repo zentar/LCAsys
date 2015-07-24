@@ -23,9 +23,12 @@ function ingresar()
    $this->load->view('ingreso_tecnica_view',  compact("datos","datos1"));
 }
 
-function ingresardetalle()
+function cargarcategoria()
 {  
-   $this->load->view('ingreso_dettecnica_view');
+    $datos=$this->categoria_model->getcategoria();
+   
+    $this->load->view('mostrar_categoria_view',compact("datos"));
+    
 }
 
 public function guardar()   {
@@ -54,6 +57,33 @@ public function guardar()   {
          }
    }
 }
+
+public function cargar_articulo()
+{
+    if($this->input->post('categoria',true)==1)
+    {
+        $datos=$this->articulo_model->getnombrequipo();
+        
+    } 
+    else
+    {
+        if($this->input->post('categoria',true)==2)
+                      $datos=$this->articulo_model->getnombrevidrieria();
+        if($this->input->post('categoria',true)==3)
+        
+                      $datos=$this->articulo_model->getnombrereactivo();
+            
+            
+    }
+    $this->load->view('mostrar_nombreequipo_view',  compact("datos"));
+}
+
+public function cruddettecnica()
+{
+    $this->load->view('cruddetalle_view');
+}
+
+
 }
 
 ?>

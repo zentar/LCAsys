@@ -146,7 +146,7 @@ public function guardar_reactivo()
                         'vida_articulo'=>'',
                         'can_emba_articulo'=>$this->input->post("cantidadembalaje",true),
                         'tiem_uso_articulo'=>'0',
-                        'tb_categoria_cod_categoria'=>'2',
+                        'tb_categoria_cod_categoria'=>'3',
                         'tb_embalaje_codigo_embalaje'=>'1',
                         'stock_articulo'=>$this->input->post("cantidad",true),
                         'cant_ingreso'=>$this->input->post("cantidad",true),

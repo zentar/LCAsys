@@ -8,12 +8,12 @@
              $("#registrartecnica").click(function(){
                //alert ('hola');
                $.ajax({
-                  url:'http://localhost:81/LCAsys/code/index.php/tecnica/guardar',
+                  url:'http://localhost:81/LCAsys/code/index.php/tecnica/cargarcategoria',
                   type: 'POST',
                   data: $('#formtecnica').serialize(),
                   success: function (msj){
                       //alert(msj);
-                      $("#validaciontecnica").html(msj);
+                      $("#cargarcategoria").html(msj);
                   }
                });  
               
@@ -57,18 +57,23 @@
                 <td>Tiempo</td>
                 <td><input type="text" name="tiempo_tecnica"  size="1"/> </td>
             </tr>     
-                <td><input type="button" value="Guardar" id="registrartecnica" /> </td>
+             <tr>
+                
+            </tr>   
            
                 
                 
         </table>
-        
-        
+             <input type="button" value="DETALLE DE TECNICA" id="registrartecnica" />  
         
         </form>
+      
         
         
-        
-        <div id="validaciontecnica"></div>
+        <div id="cargarcategoria"></div>
+         <div id="tipoarticulo"></div>
+      <div id="crudequipo"></div>
+      
+      
     </body>
 </html>

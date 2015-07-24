@@ -18,6 +18,7 @@ class Tecnica_model  extends CI_Model {
         ));
         
    }
+   
 }
     
 ?>
