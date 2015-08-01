@@ -8,7 +8,8 @@
              $("#guardarreactivo").click(function(){
                //alert ('hola');
                $.ajax({
-                  url:'http://localhost:81/LCAsys/code/index.php/articulo/guardar_reactivo',
+               //   url:'http://localhost:81/LCAsys/code/index.php/articulo/guardar_reactivo',
+                  url: '<?= base_url(); ?>' + 'articulo/guardar_reactivo',
                   type: 'POST',
                   data: $('#formreactivo').serialize(),
                   success: function (msj){

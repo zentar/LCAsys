@@ -20,16 +20,27 @@ function ingresar()
 {   //Obtener el nombre del metodo y parametro
    $datos=$this->metodo_model->get_nombre_metodo();
    $datos1=$this->parametro_model->get_nombre_parametro();
-   $this->load->view('ingreso_tecnica_view',  compact("datos","datos1"));
+
+  //Articulos para el select
+   $datos2=$this->articulo_model->get_nombre_articulo();
+
+   //Medidas
+   $datos3=$this->tipomedida_model->gettipomedida();
+//categoria
+   $datos4=$this->categoria_model->get_categoria();
+   $datos5=$this->embalaje_model->getembalaje();
+
+   $this->load->view('ingreso_tecnica_view',  compact("datos","datos1","datos2","datos3","datos4",'datos5'));
+  
+}
+function ingresardettec()
+{      
+  // $datos2=$this->articulo_model->get_nombre_articulo();
+   //$this->load->view('agregar_dettecnica_view',  compact("datos2"));
 }
 
-function cargarcategoria()
-{  
-    $datos=$this->categoria_model->getcategoria();
-   
-    $this->load->view('mostrar_categoria_view',compact("datos"));
-    
-}
+
+
 
 public function guardar()   {
 
@@ -52,38 +63,15 @@ public function guardar()   {
             echo $error;
          } else {
             //echo("todo bien");
-           $this->tecnica_model->registrar();
+           $resultado = $this->tecnica_model->registrar($this->input->post());
+           if (resultado) {
             echo("Registro Guardado");
+          } else {
+            echo("Error");
+          }
          }
    }
 }
-
-public function cargar_articulo()
-{
-    if($this->input->post('categoria',true)==1)
-    {
-        $datos=$this->articulo_model->getnombrequipo();
-        
-    } 
-    else
-    {
-        if($this->input->post('categoria',true)==2)
-                      $datos=$this->articulo_model->getnombrevidrieria();
-        if($this->input->post('categoria',true)==3)
-        
-                      $datos=$this->articulo_model->getnombrereactivo();
-            
-            
-    }
-    $this->load->view('mostrar_nombreequipo_view',  compact("datos"));
-}
-
-public function cruddettecnica()
-{
-    $this->load->view('cruddetalle_view');
-}
-
-
 }
 
 ?>

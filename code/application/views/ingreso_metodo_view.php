@@ -8,7 +8,8 @@
              $("#registrarmetodo").click(function(){
                //alert ('hola');
                $.ajax({
-                  url:'http://localhost:81/LCAsys/code/index.php/metodo/guardar',
+                  //url:'http://localhost/LCAsys/code/index.php/metodo/guardar',
+                     url: '<?= base_url(); ?>' + 'metodo/guardar', 
                   type: 'POST',
                   data: $('#formmetodo').serialize(),
                   success: function (msj){

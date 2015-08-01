@@ -15,7 +15,15 @@ class Empresa_model  extends CI_Model {
         return true;
    }
    
-   
+       public function nombreempresa()
+     {
+     $this->db->select('codigo_empresa,nombre_empresa');
+   $this->db->from('tb_empresa');
+   $this->db->order_by('codigo_empresa');
+   $consulta = $this->db->get();
+   $resultado = $consulta->result();
+   return $resultado;       
+    }  
       
             
 }

@@ -18,7 +18,17 @@ class Articulo extends CI_Controller {
     
 public function index()
 {
-    
+    $this->load->view('articulo_view');     
+      
+}
+
+public function mensaje()
+{
+    echo 'equipo';
+}
+public function mensaje1()
+{
+    echo 'vidrieria';
 }
 public function ingresoequipo()
 {
@@ -26,7 +36,38 @@ public function ingresoequipo()
        $this->load->view('ingreso_equipo_view');     
       
 }
+public function tablaequipo()
+{
+    $datos=$this->articulo_model->getEquipo();
+    $this->load->view('tablaequipo_view',compact("datos"));
+}
 
+public function mostrarequipo()
+{
+     
+   $datos=$this->articulo_model->getEquipo();
+   
+$this->load->view('mostrar_equipo_view',compact("datos"));       
+      
+}
+
+public function mostrarvidrieria()
+{
+     
+   $datos=$this->articulo_model->getVidrieria();
+   
+$this->load->view('mostrar_equipo_view',compact("datos"));       
+      
+}
+
+public function mostrarreactivo()
+{
+     
+   $datos=$this->articulo_model->getReactivo();
+   
+$this->load->view('mostrar_equipo_view',compact("datos"));       
+      
+}
 public function ingresovidrieria()
 {
     
@@ -50,29 +91,7 @@ public function guardar_equipo()
 {
    
     
-   if(!$this->input->is_ajax_request())
-   	{
-   		redirect('404');
-	}
-   	else
-   	{
-   	
-   		$this->form_validation->set_rules('nombre','nombre','required|max_length[50]');
-   		$this->form_validation->set_rules('marca','marca','required max_length[50]');
-   		$this->form_validation->set_rules('cantidad','cantidad','required|numeric');
-   		$this->form_validation->set_rules('costo','costo','required|numeric');
-   		$this->form_validation->set_rules('tiempo','tiempo','required|numeric');
-   		
-                $this->form_validation->set_message('required','El campo %s es requerido');
-                $this->form_validation->set_message('numeric','El campo %s solo puede contener numeros');
-            
-              if ($this->form_validation->run() == false) {
-   	     $error = json_encode(validation_errors());
-            $error = str_replace('"',"",$error);
-            $error = str_replace('<\/p>\n',"",$error);
-            echo $error;
-   		} 
-                else {
+  
    		$data=array
                    (
                         'codigo_articulo'=>$this->input->post("codigo",true),
@@ -95,10 +114,9 @@ public function guardar_equipo()
                    );
            
             $this->articulo_model->insertar_equipo($data);
-            echo("Registro Guardado");
-   		}
+            $this->tablaequipo();
 
-   	}
+   	
 }
 public function guardar_vidrieria()
 {
@@ -109,14 +127,16 @@ public function guardar_vidrieria()
                         'codigo_articulo'=>$this->input->post("codigo",true),
                         'nombre_articulo'=>$this->input->post("nombre",true),
                         'marca_articulo'=>$this->input->post("marca",true),
-                        'modelo_articulo'=>'',
+                        //'modelo_articulo'=>'',
+                        'modelo_articulo'=>$this->input->post("modelo",true),
                         'cantidad_articulo'=>$this->input->post("cantidad",true),
                         'precio_articulo'=>$this->input->post("costo",true),
                         'vida_articulo'=>$this->input->post("tiempo",true),
                         'can_emba_articulo'=>$this->input->post("cantidadembalaje",true),
                         'tiem_uso_articulo'=>'0',
                         'tb_categoria_cod_categoria'=>'3',
-                        'tb_embalaje_codigo_embalaje'=>$this->input->post("tipo_embalaje",true),
+                        //'tb_embalaje_codigo_embalaje'=>$this->input->post("tipo_embalaje",true),
+                        'tb_embalaje_codigo_embalaje'=>'1',
                         'stock_articulo'=>$this->input->post("cantidad",true),
                         'cant_ingreso'=>$this->input->post("cantidad",true),
                         'estado_articulo'=>'a',
@@ -146,7 +166,7 @@ public function guardar_reactivo()
                         'vida_articulo'=>'',
                         'can_emba_articulo'=>$this->input->post("cantidadembalaje",true),
                         'tiem_uso_articulo'=>'0',
-                        'tb_categoria_cod_categoria'=>'3',
+                        'tb_categoria_cod_categoria'=>'2',
                         'tb_embalaje_codigo_embalaje'=>'1',
                         'stock_articulo'=>$this->input->post("cantidad",true),
                         'cant_ingreso'=>$this->input->post("cantidad",true),

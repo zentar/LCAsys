@@ -38,6 +38,11 @@ class Parametro_model  extends CI_Model {
       $resultado = $consulta->result();
       return $resultado;   
     }
+    
+    public function getid()
+    {
+       
+    }
 }
    
 ?>

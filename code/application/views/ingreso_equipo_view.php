@@ -8,7 +8,8 @@
              $("#guardarequipo").click(function(){
                //alert ('hola');
                $.ajax({
-                  url:'http://localhost:81/LCAsys/code/index.php/articulo/guardar_equipo',
+                 // url:'http://localhost:81/LCAsys/code/index.php/articulo/guardar_equipo',
+                  url: '<?= base_url(); ?>' + 'articulo/guardar_equipo',
                   type: 'POST',
                   data: $('#formequipo').serialize(),
                   success: function (msj){

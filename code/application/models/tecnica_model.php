@@ -7,18 +7,31 @@ class Tecnica_model  extends CI_Model {
     
 
 
-   public function registrar()  {
-    
-    $this->db->insert('tb_tecnica',array(
-     'tb_metodo_codigo_metodo'=>$this->input->post('metodo',TRUE),
-     'tb_parametro_codigo_parametro'=>$this->input->post('parametro',TRUE),
-     'tiempo_tecnica'=>$this->input->post('tiempo_tecnica',TRUE)
-     
- 
-        ));
+   public function registrar($datos)  {
+    $this->db->trans_begin();
+
+    $articulos = $datos['articulos'];
+    unset($datos['articulos']);
+
+    $this->db->insert('tb_tecnica',$datos);
+
+    $tecnica_id = $this->db->insert_id();
+
+    for ($i=0; $i<count($articulos); $i++) {
+    	$articulos[$i]['tb_tecnica_codigo_tecnica'] = $tecnica_id;
+
+        $this->db->insert('tb_dettecnica',$articulos[$i]);
+    }    
+
+    if ($this->db->trans_status() === FALSE) {
+          $this->db->trans_rollback();
+          return false;
+        } else {
+          $this->db->trans_commit();
+          return true;
+        }
         
    }
-   
 }
     
 ?>

@@ -8,7 +8,8 @@
              $("#guardarvidrieria").click(function(){
                //alert ('hola');
                $.ajax({
-                  url:'http://localhost:81/LCAsys/code/index.php/articulo/guardar_vidrieria',
+                 // url:'http://localhost:81/LCAsys/code/index.php/articulo/guardar_vidrieria',
+                    url: '<?= base_url(); ?>' + 'articulo/guardar_vidrieria', 
                   type: 'POST',
                   data: $('#formvidrieria').serialize(),
                   success: function (msj){
